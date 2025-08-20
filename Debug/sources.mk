@@ -25,5 +25,13 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/BSP/STM32H7xx_Nucleo \
+Drivers/CMSIS_DSP/Source/BasicMathFunctions \
+Drivers/CMSIS_DSP/Source/CommonTables \
+Drivers/CMSIS_DSP/Source/ComplexMathFunctions \
+Drivers/CMSIS_DSP/Source/FastMathFunctions \
+Drivers/CMSIS_DSP/Source/SVMFunctions \
+Drivers/CMSIS_DSP/Source/StatisticsFunctions \
+Drivers/CMSIS_DSP/Source/SupportFunctions \
+Drivers/CMSIS_DSP/Source/TransformFunctions \
 Drivers/STM32H7xx_HAL_Driver/Src \
 

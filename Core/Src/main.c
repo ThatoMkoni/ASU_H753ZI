@@ -59,7 +59,7 @@ volatile int16_t I2S_CURRENT_SAMPLE, counter;
 volatile uint8_t Half_Cplt_Flag = 0, Full_Cplt_Flag = 0;
 
 static volatile int16_t *inpBuffPtr;
-static volatile int16_t *audioBuffPtr;
+static volatile int16_t *audioBuffPtr = &AUDIO_BUFFER[0];
 
 
 /* USER CODE END PV */
@@ -150,13 +150,13 @@ int main(void)
 
     /* USER CODE END WHILE */
 	  if(Full_Cplt_Flag == 1){
-	 		  ProcessAudio(I2S_DMA_BUFFER, AUDIO_BUFFER, AUDIO_BUFFER_SIZE);
+	 		  ProcessAudio((int16_t *)inpBuffPtr, (int16_t *)audioBuffPtr, AUDIO_BUFFER_SIZE / 2);
 	 		  Full_Cplt_Flag = 0;
 	 		  Half_Cplt_Flag = 0;
 	  }
 
 	  if(Half_Cplt_Flag == 1){
-		  ProcessAudio(I2S_DMA_BUFFER, AUDIO_BUFFER, AUDIO_BUFFER_SIZE);
+		  ProcessAudio((int16_t *)inpBuffPtr, (int16_t *)audioBuffPtr, AUDIO_BUFFER_SIZE / 2);
 	  }
 
 
